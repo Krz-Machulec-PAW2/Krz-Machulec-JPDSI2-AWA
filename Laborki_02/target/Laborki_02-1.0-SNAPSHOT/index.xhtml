@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:p="http://primefaces.org/ui">
+<ui:composition template="/templates/main.xhtml">
+
+	<ui:define name="pageContent">
+
+		<p:panel header="Kalkulator Kredytowy">
+
+			<p:messages id="msg" />
+
+			<h:form>
+				<h:panelGrid columns="2" cellpadding="5" styleClass="bottom-space">
+					<p:outputLabel for="idx" value="Kwota:" />
+					<p:inputText id="idx" value="#{calcBB.x}" />
+					<p:outputLabel for="idy" value="Stopa procentowa:" />
+					<p:inputText id="idy" value="#{calcBB.y}" />
+                                        <p:outputLabel for="idz" value="Długość trwania kredytu:" />
+					<p:inputText id="idz" value="#{calcBB.z}" />
+					<p:commandButton value="Oblicz ratę kredytu" action="#{calcBB.calc()}" update="msg" />
+				</h:panelGrid>
+			</h:form>
+
+		</p:panel>
+
+	</ui:define>
+
+</ui:composition> 
+</html>
